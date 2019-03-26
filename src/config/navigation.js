@@ -19,7 +19,7 @@ export default StackNavigator({
           screen: ScheduleScreen
         },
         Speakers: {
-          name: "Speakers2",
+          name: "Speakers",
           screen: SpeakersScreen
         },
         Map: {
