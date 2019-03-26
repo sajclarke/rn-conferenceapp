@@ -1,33 +1,38 @@
-import React from 'react';
-import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation';
-import Icon from 'react-native-vector-icons/Feather';
-import { LocationScreen, AboutScreen, SpeakersScreen, ScheduleScreen }  from '../screens';
-import { Header } from '../components';
-import config from '../config';
+import React from "react";
+import { TabNavigator, StackNavigator, TabBarBottom } from "react-navigation";
+import Icon from "react-native-vector-icons/Feather";
+import {
+  LocationScreen,
+  AboutScreen,
+  SpeakersScreen,
+  ScheduleScreen
+} from "../screens";
+import { Header } from "../components";
+import config from "../config";
 
 export default StackNavigator({
   main: {
-    screen: TabNavigator (
+    screen: TabNavigator(
       {
         Schedule: {
-          name: 'Schedule',
-          screen: ScheduleScreen,
+          name: "Schedule",
+          screen: ScheduleScreen
         },
         Speakers: {
-          name: 'Speakers',
-          screen: SpeakersScreen,
+          name: "Speakers2",
+          screen: SpeakersScreen
         },
         Map: {
-          name: 'Map',
-          screen: LocationScreen,
+          name: "Map",
+          screen: LocationScreen
         },
         About: {
-          name: 'About',
-          screen: AboutScreen,
+          name: "About",
+          screen: AboutScreen
         }
       },
       {
-        initialRouteName: 'Schedule',
+        initialRouteName: "Schedule",
         navigationOptions: ({ navigation }) => ({
           gesturesEnabled: false,
           headerStyle: {
@@ -37,19 +42,19 @@ export default StackNavigator({
           },
           headerTintColor: config.PRIMARY_TEXT_COLOR,
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold"
           },
           tabBarIcon: ({ focused, tintColor }) => {
             const { routeName } = navigation.state;
             let iconName;
-            if (routeName === 'Schedule') {
-              iconName = 'calendar';
-            } else if (routeName === 'Speakers') {
-              iconName = 'users';
-            } else if (routeName === 'Map') {
-              iconName = 'map';
-            } else if (routeName === 'About') {
-              iconName = 'info';
+            if (routeName === "Schedule") {
+              iconName = "calendar";
+            } else if (routeName === "Speakers") {
+              iconName = "users";
+            } else if (routeName === "Map") {
+              iconName = "map";
+            } else if (routeName === "About") {
+              iconName = "info";
             }
             return <Icon name={iconName} size={25} color={tintColor} />;
           }
@@ -61,11 +66,11 @@ export default StackNavigator({
           inactiveBackgroundColor: config.PRIMARY_BG_COLOR
         },
         tabBarComponent: TabBarBottom,
-        tabBarPosition: 'bottom',
+        tabBarPosition: "bottom",
         animationEnabled: false,
-        swipeEnabled: false,
+        swipeEnabled: false
       }
     ),
-    navigationOptions: { headerTitle: <Header/>}
+    navigationOptions: { headerTitle: <Header /> }
   }
-})
+});
